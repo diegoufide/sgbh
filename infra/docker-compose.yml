@@ -1,0 +1,60 @@
+name: sgbh
+
+services:
+  sgbh-proxy:
+    image: nginx:stable-alpine
+    container_name: sgbh-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/sgbh.conf:/etc/nginx/conf.d/default.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      - sgbh-web
+    networks: [sgbh-red-publica, sgbh-red-interna]
+    restart: unless-stopped
+
+  sgbh-web:
+    build: ../sgbh-web
+    container_name: sgbh-web
+    env_file: .env
+    environment:
+      SPRING_PROFILES_ACTIVE: prd
+      SGBH_ARCHIVOS_RUTA: /archivos
+    volumes:
+      - sgbh-archivos:/archivos
+    depends_on:
+      - sgbh-db
+      - sgbh-ia
+    networks: [sgbh-red-interna]
+    restart: unless-stopped
+
+  sgbh-ia:
+    build: ../ia-service
+    container_name: sgbh-ia
+    env_file: .env
+    environment:
+      SGBH_RUTA_MODELOS: /modelos
+    volumes:
+      - sgbh-modelos:/modelos
+    networks: [sgbh-red-interna]
+    restart: unless-stopped
+
+  sgbh-db:
+    image: postgres:16-alpine
+    container_name: sgbh-db
+    env_file: .env
+    volumes:
+      - sgbh-datos-db:/var/lib/postgresql/data
+    networks: [sgbh-red-interna]
+    restart: unless-stopped
+
+volumes:
+  sgbh-datos-db:
+  sgbh-archivos:
+  sgbh-modelos:
+
+networks:
+  sgbh-red-publica:
+  sgbh-red-interna:
