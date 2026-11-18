@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tablero de control · SG Business Hub</title>
+<link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/bootstrap-icons.min.css">
+<style>
+:root{--sg-primario:#2B338C;--sg-primario-oscuro:#1E2466;--sg-secundario:#4B53A8;--sg-acento:#F5B800;--sg-fondo:#F4F5FB;--sg-texto:#1F2340;
+ --bs-primary:#2B338C;--bs-primary-rgb:43,51,140;--bs-body-color:#1F2340;--bs-body-bg:#F4F5FB;--bs-link-color:#2B338C;--bs-border-radius:.6rem}
+body{background:var(--sg-fondo);font-size:.92rem;--bs-link-color-rgb:43,51,140;--bs-link-hover-color-rgb:30,36,102}
+a{text-decoration:none}
+.sidebar{width:236px;min-height:100vh;background:var(--sg-primario-oscuro)}
+.sidebar .brand{color:#fff;font-weight:700;letter-spacing:.2px}
+.sidebar .brand small{color:#AEB3E8;font-weight:400}
+.sidebar .nav-link{color:#C9CDF2;border-radius:.5rem;padding:.42rem .7rem;font-size:.86rem}
+.sidebar .nav-link i{width:1.3rem;display:inline-block}
+.sidebar .nav-link.active{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 3px 0 0 var(--sg-acento)}
+.sidebar .grupo{color:#8F95D6;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;margin:.9rem .7rem .3rem}
+.btn-primary{--bs-btn-bg:#2B338C;--bs-btn-border-color:#2B338C;--bs-btn-hover-bg:#1E2466;--bs-btn-hover-border-color:#1E2466}
+.card{border:0;box-shadow:0 1px 2px rgba(31,35,64,.06),0 2px 10px rgba(31,35,64,.05)}
+.kpi .valor{font-size:1.75rem;font-weight:700;line-height:1.1}
+.kpi .icono{width:42px;height:42px;border-radius:.6rem;display:grid;place-items:center;font-size:1.25rem}
+.text-bg-alto{background:#FDE8EA;color:#B42318}.text-bg-medio{background:#FEF3D6;color:#92400E}.text-bg-bajo{background:#E7F6EC;color:#15803D}
+.table thead th{font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;color:#6B7280;background:#F8F9FD}
+</style>
+</head>
+<body>
+<div class="d-flex">
+  <aside class="sidebar d-none d-lg-flex flex-column p-3 flex-shrink-0">
+    <div class="brand d-flex align-items-center gap-2 mb-3 px-1"><i class="bi bi-grid-1x2-fill fs-4" style="color:var(--sg-acento)"></i><div>SG Business Hub<br><small>SG Soluciones 506</small></div></div>
+    <nav class="nav flex-column">
+      <a class="nav-link active" href="#"><i class="bi bi-speedometer2"></i>Tablero</a>
+      <div class="grupo">Operación</div>
+      <a class="nav-link" href="#"><i class="bi bi-people"></i>Clientes</a>
+      <a class="nav-link" href="#"><i class="bi bi-inbox"></i>Solicitudes</a>
+      <a class="nav-link" href="#"><i class="bi bi-receipt"></i>Cotizaciones</a>
+      <a class="nav-link" href="#"><i class="bi bi-kanban"></i>Proyectos</a>
+      <a class="nav-link" href="#"><i class="bi bi-gear-wide-connected"></i>Producción y entregas</a>
+      <a class="nav-link" href="#"><i class="bi bi-chat-dots"></i>Comunicaciones</a>
+      <a class="nav-link" href="#"><i class="bi bi-box-seam"></i>Inventario</a>
+      <a class="nav-link" href="#"><i class="bi bi-image"></i>Visualización</a>
+      <div class="grupo">Análisis</div>
+      <a class="nav-link" href="#"><i class="bi bi-stars"></i>Inteligencia artificial</a>
+      <a class="nav-link" href="#"><i class="bi bi-bar-chart-line"></i>Reportes</a>
+      <div class="grupo">Administración</div>
+      <a class="nav-link" href="#"><i class="bi bi-shield-lock"></i>Usuarios y seguridad</a>
+    </nav>
+  </aside>
+  <div class="flex-grow-1 min-vw-0" style="min-width:0">
+    <header class="navbar bg-white border-bottom px-3 px-lg-4 py-2">
+      <button class="btn btn-outline-secondary btn-sm d-lg-none me-2" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+      <div>
+        <nav aria-label="breadcrumb"><ol class="breadcrumb mb-0 small"><li class="breadcrumb-item"><a href="#">Inicio</a></li><li class="breadcrumb-item active" aria-current="page">Tablero de control</li></ol></nav>
+        <h1 class="h5 mb-0 fw-bold">Tablero de control</h1>
+      </div>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <div class="input-group input-group-sm d-none d-md-flex" style="width:240px"><span class="input-group-text bg-white"><i class="bi bi-search"></i></span><input class="form-control" placeholder="Buscar cliente, proyecto…"></div>
+        <button class="btn btn-light btn-sm position-relative" aria-label="Notificaciones"><i class="bi bi-bell fs-6"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span></button>
+        <div class="d-flex align-items-center gap-2"><span class="rounded-circle text-white d-grid fw-bold" style="width:34px;height:34px;place-items:center;background:var(--sg-secundario)">JM</span><div class="d-none d-md-block lh-sm"><div class="fw-semibold">José María</div><small class="text-secondary">Administrador</small></div></div>
+      </div>
+    </header>
+    <main class="p-3 p-lg-4">
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+        <select class="form-select form-select-sm w-auto"><option>Noviembre 2026</option></select>
+        <select class="form-select form-select-sm w-auto"><option>Todos los tipos de servicio</option></select>
+        <div class="ms-auto d-flex gap-2"><button class="btn btn-outline-primary btn-sm"><i class="bi bi-file-earmark-pdf me-1"></i>PDF</button><button class="btn btn-outline-primary btn-sm"><i class="bi bi-file-earmark-excel me-1"></i>Excel</button><button class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Nueva solicitud</button></div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-6 col-xl-3"><div class="card kpi h-100"><div class="card-body d-flex justify-content-between"><div><div class="text-secondary small">Proyectos activos</div><div class="valor">12</div><small class="text-success"><i class="bi bi-arrow-up-short"></i>2 vs. octubre</small></div><div class="icono" style="background:#E8EAF8;color:#2B338C"><i class="bi bi-kanban"></i></div></div></div></div>
+        <div class="col-6 col-xl-3"><div class="card kpi h-100"><div class="card-body d-flex justify-content-between"><div><div class="text-secondary small">Proyectos atrasados</div><div class="valor text-danger">2</div><small class="text-secondary">de 12 activos</small></div><div class="icono" style="background:#FDE8EA;color:#B42318"><i class="bi bi-exclamation-triangle"></i></div></div></div></div>
+        <div class="col-6 col-xl-3"><div class="card kpi h-100"><div class="card-body d-flex justify-content-between"><div><div class="text-secondary small">Cotizaciones aceptadas</div><div class="valor">68 %</div><small class="text-secondary">5 pendientes de respuesta</small></div><div class="icono" style="background:#E7F6EC;color:#15803D"><i class="bi bi-receipt"></i></div></div></div></div>
+        <div class="col-6 col-xl-3"><div class="card kpi h-100"><div class="card-body d-flex justify-content-between"><div><div class="text-secondary small">Materiales bajo mínimo</div><div class="valor" style="color:#B45309">3</div><small class="text-secondary">vinil, acrílico, LED</small></div><div class="icono" style="background:#FEF3D6;color:#B45309"><i class="bi bi-box-seam"></i></div></div></div></div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-lg-7"><div class="card h-100"><div class="card-header bg-white border-0 pt-3 d-flex"><h2 class="h6 fw-bold mb-0">Proyectos por estado</h2><small class="ms-auto text-secondary">últimos 6 meses</small></div><div class="card-body pt-0"><canvas id="grafico" height="190"></canvas></div></div></div>
+        <div class="col-lg-5"><div class="card h-100"><div class="card-header bg-white border-0 pt-3 d-flex align-items-center"><h2 class="h6 fw-bold mb-0"><i class="bi bi-stars me-1" style="color:#4B53A8"></i>Riesgo de atraso (IA)</h2><span class="badge text-bg-light ms-auto">análisis 6:00</span></div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex align-items-center gap-2"><span class="badge text-bg-alto">Alto 82 %</span><div class="lh-sm"><div class="fw-semibold">Armado de letras 3D</div><small class="text-secondary">PRY-2026-014 · vence 20/11</small></div><button class="btn btn-sm btn-outline-primary ms-auto">Ver</button></li>
+            <li class="list-group-item d-flex align-items-center gap-2"><span class="badge text-bg-alto">Alto 74 %</span><div class="lh-sm"><div class="fw-semibold">Instalación de rótulo luminoso</div><small class="text-secondary">PRY-2026-011 · vence 22/11</small></div><button class="btn btn-sm btn-outline-primary ms-auto">Ver</button></li>
+            <li class="list-group-item d-flex align-items-center gap-2"><span class="badge text-bg-medio">Medio 55 %</span><div class="lh-sm"><div class="fw-semibold">Impresión de vinil para fachada</div><small class="text-secondary">PRY-2026-016 · vence 27/11</small></div><button class="btn btn-sm btn-outline-primary ms-auto">Ver</button></li>
+          </ul>
+          <div class="card-footer bg-white border-0 small text-secondary"><i class="bi bi-info-circle me-1"></i>Sugerencia de la IA: una persona confirma la acción.</div></div></div>
+      </div>
+      <div class="card"><div class="card-header bg-white border-0 pt-3 d-flex"><h2 class="h6 fw-bold mb-0">Entregas de la semana</h2><a href="#" class="ms-auto small">Ver todas</a></div>
+        <div class="table-responsive"><table class="table table-hover align-middle mb-0">
+          <thead><tr><th>Orden</th><th>Proyecto</th><th>Tipo</th><th>Fecha</th><th>Etapa</th><th class="text-end">Acción</th></tr></thead>
+          <tbody>
+            <tr><td class="fw-semibold">OP-2026-0031</td><td>Rótulo luminoso de fachada</td><td><i class="bi bi-tools me-1"></i>Instalación</td><td>19/11 · 9:00</td><td><span class="badge text-bg-bajo">Listo</span></td><td class="text-end"><button class="btn btn-sm btn-primary">Registrar entrega</button></td></tr>
+            <tr><td class="fw-semibold">OP-2026-0029</td><td>Letras 3D en acrílico</td><td><i class="bi bi-shop me-1"></i>Retiro en taller</td><td>20/11 · 14:00</td><td><span class="badge text-bg-medio">Acabados</span></td><td class="text-end"><button class="btn btn-sm btn-outline-secondary">Ver orden</button></td></tr>
+            <tr><td class="fw-semibold">OP-2026-0027</td><td>Señalización interna</td><td><i class="bi bi-tools me-1"></i>Instalación</td><td>21/11 · 8:00</td><td><span class="badge text-bg-alto">En espera de material</span></td><td class="text-end"><button class="btn btn-sm btn-outline-secondary">Ver orden</button></td></tr>
+          </tbody></table></div></div>
+      <p class="text-secondary small mt-3 mb-0">Prototipo de referencia con datos de ejemplo · Bootstrap 5.3.3 · Bootstrap Icons 1.11.3 · Chart.js 4.4.1</p>
+    </main>
+  </div>
+</div>
+<script src="vendor/chart.umd.min.js"></script>
+<script>
+new Chart(document.getElementById('grafico'),{type:'bar',data:{labels:['Jun','Jul','Ago','Set','Oct','Nov'],
+datasets:[{label:'Activos',data:[8,9,11,10,10,12],backgroundColor:'#2B338C',borderRadius:4},{label:'Finalizados',data:[5,6,7,9,8,6],backgroundColor:'#9AA0E0',borderRadius:4},{label:'Atrasados',data:[1,2,1,2,1,2],backgroundColor:'#DC3545',borderRadius:4}]},
+options:{animation:false,responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{beginAtZero:true,grid:{color:'#EEF0F6'}},x:{grid:{display:false}}}}});
+</script>
+</body></html>
