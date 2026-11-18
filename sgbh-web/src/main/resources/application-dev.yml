@@ -1,0 +1,6 @@
+logging:
+  level:
+    cr.sgsoluciones506: DEBUG
+spring:
+  thymeleaf:
+    cache: false

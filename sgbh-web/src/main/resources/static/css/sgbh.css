@@ -1,0 +1,27 @@
+/* Lineamientos de diseño SG Business Hub (DN01, sección 6) sobre Bootstrap 5.3.3 */
+:root {
+    --sg-primario: #2B338C;
+    --sg-primario-oscuro: #1E2466;
+    --sg-secundario: #4B53A8;
+    --sg-acento: #F5B800;
+    --sg-fondo: #F4F5FB;
+    --sg-texto: #1F2340;
+    --bs-primary: #2B338C;
+    --bs-primary-rgb: 43, 51, 140;
+    --bs-link-color-rgb: 43, 51, 140;
+    --bs-body-bg: #F4F5FB;
+    --bs-body-color: #1F2340;
+    --bs-body-font-size: 0.92rem;
+}
+a { text-decoration: none; }
+.btn-primary { --bs-btn-bg: #2B338C; --bs-btn-border-color: #2B338C; --bs-btn-hover-bg: #1E2466; --bs-btn-hover-border-color: #1E2466; }
+.sg-menu { width: 240px; background: var(--sg-primario-oscuro); }
+@media (min-width: 992px) { .sg-menu { min-height: 100vh; } }
+.sg-menu .offcanvas-body { display: flex; padding: .75rem; }
+.sg-menu-item { color: rgba(255, 255, 255, .8); padding: .5rem .75rem; border-radius: .375rem; border-left: 3px solid transparent; }
+.sg-menu-item:hover, .sg-menu-item.active { color: #fff; background: rgba(255, 255, 255, .08); border-left-color: var(--sg-acento); }
+.sg-barra { background: #fff; border-bottom: 1px solid #E3E5F0; }
+.sg-kpi .sg-kpi-valor { font-size: 1.75rem; font-weight: 700; }
+.text-bg-alto { background: #FDE8EA; color: #B42318; }
+.text-bg-medio { background: #FEF3D6; color: #92400E; }
+.text-bg-bajo { background: #E7F6EC; color: #15803D; }
